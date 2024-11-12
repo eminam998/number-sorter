@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import '../css/app.css'; // Make sure the path is correct
-import NumberSortingApp from './components/NumberSortingApp'; // Import the sorting component
-import FrequentNumbers from './components/FrequentNumbers'; // Import the frequent numbers component
+import '../css/app.css';
+import NumberSortingApp from './components/NumberSortingApp';
+import FrequentNumbers from './components/FrequentNumbers';
 
 const App = () => {
-    const [activeTab, setActiveTab] = useState('sortNumbers'); // Default to sorting numbers tab
+    const [activeTab, setActiveTab] = useState('sortNumbers');
 
     return (
         <div className="p-6 bg-gray-100 min-h-screen">
-            {/* Navigation Bar */}
             <nav className="flex justify-center space-x-8 mb-8">
                 <button
                     onClick={() => setActiveTab('sortNumbers')}
@@ -25,14 +24,12 @@ const App = () => {
                 </button>
             </nav>
 
-            {/* Display the active component based on the selected tab */}
             {activeTab === 'sortNumbers' && <NumberSortingApp />}
             {activeTab === 'frequentNumbers' && <FrequentNumbers />}
         </div>
     );
 };
 
-// Render the app component
 const container = document.getElementById('numberApp');
 const root = createRoot(container);
 root.render(<App />);
